@@ -21,52 +21,38 @@ export default function App() {
   }, []);
 
   async function compressFolder() {
-    if (
-      !(await RNFS.exists(RNFS.ExternalStorageDirectoryPath + '/Download/test'))
-    ) {
-      await RNFS.mkdir(RNFS.ExternalStorageDirectoryPath + '/Download/test');
-      await RNFS.writeFile(
-        RNFS.ExternalStorageDirectoryPath + '/Download/test/t.txt',
-        'test'
-      );
+    if (!(await RNFS.exists(RNFS.CachesDirectoryPath + '/test'))) {
+      await RNFS.mkdir(RNFS.CachesDirectoryPath + '/test');
+      await RNFS.writeFile(RNFS.CachesDirectoryPath + '/test/t.txt', 'test');
     }
 
     const result = compress(
-      RNFS.ExternalStorageDirectoryPath + '/Download/test',
-      RNFS.ExternalStorageDirectoryPath + '/Download/archive.tar.gz'
+      RNFS.CachesDirectoryPath + '/test',
+      RNFS.CachesDirectoryPath + '/archive.tar.gz'
     );
 
-    console.log(result);
+    if (result !== 'Ok') {
+      console.warn(result);
+      return;
+    }
 
     Alert.alert('Success');
   }
 
   async function uncompressFolder() {
-    if (
-      !(await RNFS.exists(
-        RNFS.ExternalStorageDirectoryPath + '/Download/archive.tar.gz'
-      ))
-    ) {
-      console.warn(
-        `${RNFS.ExternalStorageDirectoryPath + '/Download/archive.tar.gz'} not found`
-      );
-      return;
-    }
-
-    if (
-      !(await RNFS.exists(
-        RNFS.ExternalStorageDirectoryPath + '/Download/results'
-      ))
-    ) {
-      await RNFS.mkdir(RNFS.ExternalStorageDirectoryPath + '/Download/results');
+    if (!(await RNFS.exists(RNFS.CachesDirectoryPath + '/results'))) {
+      await RNFS.mkdir(RNFS.CachesDirectoryPath + '/results');
     }
 
     const result = uncompress(
-      RNFS.ExternalStorageDirectoryPath + '/Download/archive.tar.gz',
-      RNFS.ExternalStorageDirectoryPath + '/Download/results'
+      RNFS.CachesDirectoryPath + '/archive.tar.gz',
+      RNFS.CachesDirectoryPath + '/results'
     );
 
-    console.log(result);
+    if (result !== 'Ok') {
+      console.warn(result);
+      return;
+    }
 
     Alert.alert('Success');
   }

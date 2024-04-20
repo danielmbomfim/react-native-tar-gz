@@ -29,7 +29,7 @@ public class TarGzModule extends NativeTarGzSpec {
 
   @Override
   public String compress(String source, String destination) {
-    double result =  nativeCompress(source, destination);
+    double result = nativeCompress(source, destination);
 
     if (result == 0) {
       return nativeGetError();
@@ -46,6 +46,6 @@ public class TarGzModule extends NativeTarGzSpec {
       return nativeGetError();
     }
 
-    return "OK";
+    return "Ok";
   }
 }

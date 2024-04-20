@@ -1,4 +1,5 @@
 #include <jni.h>
+#include <string>
 #include "targz.h"
 
 std::string jstring2string(JNIEnv *env, jstring jStr) {
@@ -36,17 +37,17 @@ std::string get_last_error_message() {
 extern "C"
 JNIEXPORT jdouble JNICALL
 Java_com_reactnative_targz_TarGzModule_nativeCompress(JNIEnv *env, jclass type, jstring source, jstring destination) {
-    return compress_rs(jstring2string(env, source), jstring2string(env, destination));
+  return compress_rs(jstring2string(env, source).c_str(), jstring2string(env, destination).c_str());
 }
 
 extern "C"
 JNIEXPORT jdouble JNICALL
 Java_com_reactnative_targz_TarGzModule_nativeUncompress(JNIEnv *env, jclass type, jstring source, jstring destination) {
-    return uncompress_rs(jstring2string(env, source), jstring2string(env, destination));
+  return uncompress_rs(jstring2string(env, source).c_str(), jstring2string(env, destination).c_str());
 }
 
 extern "C"
 JNIEXPORT jstring JNICALL
 Java_com_reactnative_targz_TarGzModule_nativeGetError(JNIEnv *env, jclass type) {
-    return env->NewStringUTF(get_last_error_message().c_str());
+  return env->NewStringUTF(get_last_error_message().c_str());
 }

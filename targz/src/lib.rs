@@ -50,8 +50,7 @@ pub extern "C" fn compress_rs(source_path: *const c_char, destination_path: *con
             .to_str()
             .unwrap();
 
-        assert!(Path::new(source).exists(), "File does not exists.");
-        assert!(Path::new(destination).exists(), "Folder does not exists.");
+        assert!(Path::new(source).exists(), "Folder does not exists.");
 
         compress(source, destination).unwrap();
     });
