@@ -13,6 +13,7 @@
     "android",
     "ios",
     "cpp",
+    "targz",
     "*.podspec",
     "!ios/build",
     "!android/build",
