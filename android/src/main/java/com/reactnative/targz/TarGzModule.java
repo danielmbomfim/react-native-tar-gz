@@ -23,12 +23,29 @@ public class TarGzModule extends NativeTarGzSpec {
     System.loadLibrary("react-native-tar-gz");
   }
 
-  private static native double nativeMultiply(double a, double b);
+  private static native double nativeCompress(String source, String destination);
+  private static native double nativeUncompress(String source, String destination);
+  private static native String nativeGetError();
 
-  // Example method
-  // See https://reactnative.dev/docs/native-modules-android
   @Override
-  public double multiply(double a, double b) {
-    return nativeMultiply(a, b);
+  public String compress(String source, String destination) {
+    double result =  nativeCompress(source, destination);
+
+    if (result == 0) {
+      return nativeGetError();
+    }
+
+    return "Ok";
+  }
+
+  @Override
+  public String uncompress(String source, String destination) {
+    double result = nativeUncompress(source, destination);
+
+    if (result == 0) {
+      return nativeGetError();
+    }
+
+    return "OK";
   }
 }

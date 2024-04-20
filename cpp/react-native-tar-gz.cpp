@@ -1,7 +1,0 @@
-#include "react-native-tar-gz.h"
-
-namespace reactnative_targz {
-	double multiply(double a, double b) {
-		return a * b;
-	}
-}
