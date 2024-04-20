@@ -2,6 +2,7 @@ use std::{
     ffi::{c_char, CStr, OsString},
     fmt::Display,
     fs::File,
+    path::Path,
 };
 
 use erros::update_last_error;
@@ -14,10 +15,15 @@ use tar::Archive;
 #[no_mangle]
 pub extern "C" fn uncompress_rs(source_path: *const c_char, destination_path: *const c_char) -> u8 {
     let result = std::panic::catch_unwind(|| {
-        let source = unsafe { CStr::from_ptr(source_path) };
-        let destination = unsafe { CStr::from_ptr(destination_path) };
+        let source = unsafe { CStr::from_ptr(source_path) }.to_str().unwrap();
+        let destination = unsafe { CStr::from_ptr(destination_path) }
+            .to_str()
+            .unwrap();
 
-        uncompress(source.to_str().unwrap(), destination.to_str().unwrap()).unwrap();
+        assert!(Path::new(source).exists(), "File does not exists.");
+        assert!(Path::new(destination).exists(), "Folder does not exists.");
+
+        uncompress(source, destination).unwrap();
     });
 
     if let Err(error) = result {
@@ -39,10 +45,15 @@ pub extern "C" fn uncompress_rs(source_path: *const c_char, destination_path: *c
 #[no_mangle]
 pub extern "C" fn compress_rs(source_path: *const c_char, destination_path: *const c_char) -> u8 {
     let result = std::panic::catch_unwind(|| {
-        let source = unsafe { CStr::from_ptr(source_path) };
-        let destination = unsafe { CStr::from_ptr(destination_path) };
+        let source = unsafe { CStr::from_ptr(source_path) }.to_str().unwrap();
+        let destination = unsafe { CStr::from_ptr(destination_path) }
+            .to_str()
+            .unwrap();
 
-        compress(source.to_str().unwrap(), destination.to_str().unwrap()).unwrap();
+        assert!(Path::new(source).exists(), "File does not exists.");
+        assert!(Path::new(destination).exists(), "Folder does not exists.");
+
+        compress(source, destination).unwrap();
     });
 
     if let Err(error) = result {
