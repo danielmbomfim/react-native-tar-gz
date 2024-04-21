@@ -16,8 +16,8 @@ FetchContent_MakeAvailable(Corrosion)
 
 corrosion_import_crate(MANIFEST_PATH ../targz/Cargo.toml NO_LINKER_OVERRIDE)
 
-add_library(react-native-tar-gz SHARED ./cpp/cpp-adapter.cpp)
+add_library(react-native-tar-gz SHARED ../cpp/cpp-adapter.cpp)
 
 target_link_libraries(react-native-tar-gz PUBLIC targz)
 
-include_directories(./cpp)
+include_directories(../cpp)
