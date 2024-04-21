@@ -14,7 +14,7 @@
     "ios",
     "cpp",
     "targz",
-    "targz/.cargo",
+    "targz/.cargo/config.toml",
     "*.podspec",
     "!ios/build",
     "!android/build",
