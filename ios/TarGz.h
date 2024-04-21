@@ -1,5 +1,5 @@
 #ifdef __cplusplus
-#import "react-native-tar-gz.h"
+#import "targz.h"
 #endif
 
 #ifdef RCT_NEW_ARCH_ENABLED

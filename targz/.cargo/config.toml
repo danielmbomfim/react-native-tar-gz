@@ -10,3 +10,18 @@ linker = "/home/daniel/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/lin
 
 [target.x86_64-linux-android]
 linker = "/home/daniel/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android21-clang"
+
+# [target.aarch64-apple-ios]
+# linker = ""
+
+# [target.armv7-apple-ios]
+# linker = ""
+
+# [target.armv7s-apple-ios]
+# linker = ""
+
+# [target.x86_64-apple-ios]
+# linker = ""
+
+# [target.i386-apple-ios]
+# linker = ""
