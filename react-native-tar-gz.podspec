@@ -14,11 +14,12 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => min_ios_version_supported }
   s.source       = { :git => "https://github.com/danielmbomfim/react-native-tar-gz.git", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{h,m,mm}", "cpp/**/*.{hpp,h}"
+  s.source_files = "ios/**/*.{h,m,mm}", "cpp/**/*.{h}"
+  s.ios.vendored_libraries = "targz/target/universal/release/libtargz.a"
 
   s.prepare_command = 
     <<-CMD
-        echo TEST
+        cargo lipo --manifest-path targz/Cargo.toml --release
     CMD
 
   # Use install_modules_dependencies helper to install the dependencies if React Native version >=0.71.0.
@@ -42,5 +43,5 @@ Pod::Spec.new do |s|
     s.dependency "RCTTypeSafety"
     s.dependency "ReactCommon/turbomodule/core"
    end
-  end    
+  end
 end
