@@ -1,5 +1,5 @@
 #ifdef __cplusplus
-#import "targz.h"
+#import "targz-rs.h"
 #endif
 
 #ifdef RCT_NEW_ARCH_ENABLED

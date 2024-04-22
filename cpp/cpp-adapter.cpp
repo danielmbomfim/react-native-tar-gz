@@ -1,6 +1,6 @@
 #include <jni.h>
 #include <string>
-#include "targz.h"
+#include "targz-rs.h"
 
 std::string jstring2string(JNIEnv *env, jstring jStr) {
     if (!jStr)
