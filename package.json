@@ -15,6 +15,7 @@
     "cpp",
     "targz",
     "targz/.cargo/config.toml",
+    "postInstall.js",
     "*.podspec",
     "!ios/build",
     "!android/build",
@@ -35,7 +36,7 @@
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
     "release": "release-it",
-    "postinstall": "originalfile=targz/.cargo/config.toml; tmpfile=$(mktemp); cp --attributes-only --preserve $originalfile $tmpfile; cat $originalfile | envsubst > $tmpfile && mv $tmpfile $originalfile"
+    "postinstall": "node postInstall.js"
   },
   "keywords": [
     "react-native",
