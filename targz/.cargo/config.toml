@@ -1,27 +1,11 @@
-
 [target.aarch64-linux-android]
-linker = "/home/daniel/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android29-clang"
+linker = "${NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android29-clang"
 
 [target.armv7-linux-androideabi]
-linker = "/home/daniel/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi29-clang"
+linker = "${NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi29-clang"
 
 [target.i686-linux-android]
-linker = "/home/daniel/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/linux-x86_64/bin/i686-linux-android29-clang"
+linker = "${NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/i686-linux-android29-clang"
 
 [target.x86_64-linux-android]
-linker = "/home/daniel/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android21-clang"
-
-# [target.aarch64-apple-ios]
-# linker = ""
-
-# [target.armv7-apple-ios]
-# linker = ""
-
-# [target.armv7s-apple-ios]
-# linker = ""
-
-# [target.x86_64-apple-ios]
-# linker = ""
-
-# [target.i386-apple-ios]
-# linker = ""
+linker = "${NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android21-clang"
