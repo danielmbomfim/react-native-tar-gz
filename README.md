@@ -8,7 +8,10 @@ This library uses the new architecture and as a project must have it enabled to 
 [How to enable the new architecture](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/enable-apps.md).
 ## Installation
 
-As this lib uses rust it's necessary to [install](https://www.rust-lang.org/learn/get-started) it before builing.
+As this lib uses rust, you must [install](https://www.rust-lang.org/learn/get-started) it before building.
+
+### Warning
+It's necessary to have NDK_HOME defined as a enviroment variable pointing to the location of the android NDK before installing this library. This limitation happens because cargo does not expand envivoment variables on its config file, because of this a post installation script is used to set the location of the linkers used on android builds.
 
 ### Android
 
