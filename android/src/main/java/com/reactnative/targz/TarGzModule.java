@@ -3,6 +3,7 @@ package com.reactnative.targz;
 import androidx.annotation.NonNull;
 
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.module.annotations.ReactModule;
 
 @ReactModule(name = TarGzModule.NAME)
@@ -28,24 +29,26 @@ public class TarGzModule extends NativeTarGzSpec {
   private static native String nativeGetError();
 
   @Override
-  public String compress(String source, String destination) {
+  public void compress(String source, String destination, Promise promise) {
     double result = nativeCompress(source, destination);
 
     if (result == 0) {
-      return nativeGetError();
+      promise.reject(nativeGetError());
+      return;
     }
 
-    return "Ok";
+    promise.resolve(null);
   }
 
   @Override
-  public String uncompress(String source, String destination) {
+  public void uncompress(String source, String destination, Promise promise) {
     double result = nativeUncompress(source, destination);
 
     if (result == 0) {
-      return nativeGetError();
+      promise.reject(nativeGetError());
+      return;
     }
 
-    return "Ok";
+    promise.resolve(null);
   }
 }

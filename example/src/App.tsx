@@ -26,35 +26,51 @@ export default function App() {
       await RNFS.writeFile(RNFS.CachesDirectoryPath + '/test/t.txt', 'test');
     }
 
-    const result = compress(
-      RNFS.CachesDirectoryPath + '/test',
-      RNFS.CachesDirectoryPath + '/archive.tar.gz'
-    );
-
-    if (result !== 'Ok') {
-      console.warn(result);
-      return;
+    if (await RNFS.exists(RNFS.CachesDirectoryPath + '/archive.tar.gz')) {
+      await RNFS.unlink(RNFS.CachesDirectoryPath + '/archive.tar.gz');
+      console.log(
+        await RNFS.exists(RNFS.CachesDirectoryPath + '/archive.tar.gz')
+      );
     }
 
-    Alert.alert('Success');
+    try {
+      await compress(
+        RNFS.CachesDirectoryPath + '/test',
+        RNFS.CachesDirectoryPath + '/archive.tar.gz'
+      );
+
+      console.log(
+        (await RNFS.readDir(RNFS.CachesDirectoryPath)).map((i) => i.path)
+      );
+      Alert.alert('Success');
+    } catch (error) {
+      console.warn(error);
+    }
   }
 
   async function uncompressFolder() {
     if (!(await RNFS.exists(RNFS.CachesDirectoryPath + '/results'))) {
       await RNFS.mkdir(RNFS.CachesDirectoryPath + '/results');
+    } else {
+      await RNFS.unlink(RNFS.CachesDirectoryPath + '/results');
+      await RNFS.mkdir(RNFS.CachesDirectoryPath + '/results');
     }
 
-    const result = uncompress(
-      RNFS.CachesDirectoryPath + '/archive.tar.gz',
-      RNFS.CachesDirectoryPath + '/results'
-    );
+    try {
+      await uncompress(
+        RNFS.CachesDirectoryPath + '/archive.tar.gz',
+        RNFS.CachesDirectoryPath + '/results'
+      );
 
-    if (result !== 'Ok') {
-      console.warn(result);
-      return;
+      console.log(
+        (await RNFS.readDir(RNFS.CachesDirectoryPath + '/results')).map(
+          (i) => i.path
+        )
+      );
+      Alert.alert('Success');
+    } catch (error) {
+      console.warn(error);
     }
-
-    Alert.alert('Success');
   }
 
   return (

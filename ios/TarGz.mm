@@ -5,28 +5,41 @@ RCT_EXPORT_MODULE()
 
 // Don't compile this code when we build for the old architecture.
 #ifdef RCT_NEW_ARCH_ENABLED
-- (NSString*)compress:(NSString*) source destination:(NSString*) destination {
-    double *result = compress_rs(source, destination);
+- compress:(NSString*)source destination:(NSString*) destination resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject {
+    const char *from = [source UTF8String];
+    const char *to = [destination UTF8String];
+    
+    double *result = compress_rs(from, to);
 
     if (result == 0) {
-        NSString *error_message = @(nativeGetError());
+                const *char error_message = nativeGetError();
+        NSString *parsed_error_message = [NSString stringWithUTF8String:cStrierror_messageng];
         
-        return error_message;
+        reject(parsed_error_message);
+        return;
     }
 
-    return @"Ok";
+    resolve(NULL);
+    return;
 }
 
-- (NSString*)uncompress:(NSString*) source destination:(NSString*) destination {
-    double *result = uncompress_rs(source, destination);
+- uncompress:(NSString*) source destination:(NSString*) destination resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject {
+    const char *from = [source UTF8String];
+    const char *to = [destination UTF8String];
+
+    double *result = uncompress_rs(from, to);
 
     if (result == 0) {
-        NSString *error_message = @(nativeGetError());
+        const *char error_message = nativeGetError();
+        NSString *parsed_error_message = [NSString stringWithUTF8String:cStrierror_messageng];
         
-        return error_message;
+        reject(parsed_error_message);
+        return;
     }
 
-    return @"Ok";
+    resolve(NULL);
+    return;
 }
 
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
