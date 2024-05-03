@@ -1,4 +1,3 @@
-using namespace std;
 #import "TarGz.h"
 
 @implementation TarGz
@@ -13,19 +12,9 @@ RCT_EXPORT_MODULE()
     int8_t result = compress_rs(from, to);
 
     if (result == 0) {
-        // int error_length = last_error_length();
-        // NSString *error_message = @"";
-
-        // if (error_length != 0) {
-        //     std::string msg(error_length, '\0');
-        //     int ret = last_error_message(&msg[0], msg.length());
-
-        //     if (ret > 0) {
-        //         error_message = [NSString stringWithUTF8String:ret];
-        //     }
-        // }
-
-        NSError *error = [NSError errorWithDomain:@"error" code:200 userInfo:@{@"Error reason": @"Invalid Input"}];
+        const char *c_string = get_error_message();
+        NSString *error_message = [NSString stringWithUTF8String:c_string];
+        NSError *error = [NSError errorWithDomain:@"react-native-tar-gz-error" code:200 userInfo:@{@"Error reason": error_message}];
         
         reject(@"tarball_error", @"Failed to compress", error);
         return;
@@ -42,19 +31,9 @@ RCT_EXPORT_MODULE()
     int8_t result = uncompress_rs(from, to);
 
     if (result == 0) {
-        // int error_length = last_error_length();
-        // NSString *error_message = @"";
-
-        // if (error_length != 0) {
-        //     std::string msg(error_length, '\0');
-        //     int ret = last_error_message(&msg[0], msg.length());
-
-        //     if (ret > 0) {
-        //         error_message = [NSString stringWithUTF8String:ret];
-        //     }
-        // }
-
-        NSError *error = [NSError errorWithDomain:@"error" code:200 userInfo:@{@"Error reason": @"Invalid Input"}];
+        const char *c_string = get_error_message();
+        NSString *error_message = [NSString stringWithUTF8String:c_string];
+        NSError *error = [NSError errorWithDomain:@"react-native-tar-gz-error" code:200 userInfo:@{@"Error reason": error_message}];
         
         reject(@"tarball_error", @"Failed to uncompress", error);
         return;

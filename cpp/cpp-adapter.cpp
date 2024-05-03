@@ -17,23 +17,6 @@ std::string jstring2string(JNIEnv *env, jstring jStr) {
     return ret;
 }
 
-std::string get_last_error_message() {
-  int error_length = last_error_length();
-
-  if (error_length == 0) {
-    return std::string();
-  }
-
-  std::string msg(error_length, '\0');
-  int ret = last_error_message(&msg[0], msg.length());
-
-  if (ret <= 0) {
-    return std::string();
-  }
-
-  return msg;
-}
-
 extern "C"
 JNIEXPORT jdouble JNICALL
 Java_com_reactnative_targz_TarGzModule_nativeCompress(JNIEnv *env, jclass type, jstring source, jstring destination) {
@@ -49,5 +32,5 @@ Java_com_reactnative_targz_TarGzModule_nativeUncompress(JNIEnv *env, jclass type
 extern "C"
 JNIEXPORT jstring JNICALL
 Java_com_reactnative_targz_TarGzModule_nativeGetError(JNIEnv *env, jclass type) {
-  return env->NewStringUTF(get_last_error_message().c_str());
+  return env->NewStringUTF(get_error_message());
 }
