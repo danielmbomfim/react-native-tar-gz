@@ -34,29 +34,23 @@ npm install @react-native/tar-gz
 ```js
 import { compress, uncompress } from '@react-native/tar-gz';
 
-const result = compress(
-    '<full-path>/source-folder',
-    '<full-path>/archive.tar.gz'
-);
-
-if (result !== 'Ok') {
-    console.warn(result);
-    return;
+try {
+    await compress(
+        '<full-path>/source-folder',
+        '<full-path>/archive.tar.gz'
+    );
+} catch(error) {
+    console.error(error);
 }
 
-Alert.alert('Success');
-
-const result = uncompress(
-    '<full-path>/archive.tar.gz',
-    '<full-path>/destination-folder'
-);
-
-if (result !== 'Ok') {
-    console.warn(result);
-    return;
+try {
+    await uncompress(
+        '<full-path>/archive.tar.gz',
+        '<full-path>/destination-folder'
+    );
+} catch(error) {
+    console.error(error);
 }
-
-Alert.alert('Success');
 ```
 
 ## Contributing
