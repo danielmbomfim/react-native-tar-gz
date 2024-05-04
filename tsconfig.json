@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "@react-native/tar-gz": ["./src/index"]
+      "react-native-tar-gz": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

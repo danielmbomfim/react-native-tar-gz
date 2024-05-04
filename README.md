@@ -1,4 +1,4 @@
-# @react-native/tar-gz
+# react-native-tar-gz
 
 A react native lib using rust for compressing and extracting tar.gz files.
 
@@ -17,7 +17,7 @@ It's necessary to have NDK_HOME defined as a enviroment variable pointing to the
 
 ```sh
 rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
-npm install @react-native/tar-gz
+npm install react-native-tar-gz
 ```
 
 ### Ios
@@ -25,14 +25,14 @@ npm install @react-native/tar-gz
 ```sh
 rustup target add aarch64-apple-ios x86_64-apple-ios
 cargo install cargo-lipo
-npm install @react-native/tar-gz
+npm install react-native-tar-gz
 ```
 
 ## Usage
 
 
 ```js
-import { compress, uncompress } from '@react-native/tar-gz';
+import { compress, uncompress } from 'react-native-tar-gz';
 
 try {
     await compress(

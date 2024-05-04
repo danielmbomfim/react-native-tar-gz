@@ -1,5 +1,5 @@
 {
-  "name": "@react-native/tar-gz",
+  "name": "react-native-tar-gz",
   "version": "0.1.0",
   "description": "A react native package for compressing and extracting tar.gz files",
   "main": "lib/commonjs/index",
@@ -29,7 +29,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace @react-native/tar-gz-example",
+    "example": "yarn workspace react-native-tar-gz-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",

@@ -9,7 +9,7 @@ import {
 import RNFS from 'react-native-fs';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { compress, uncompress } from '@react-native/tar-gz';
+import { compress, uncompress } from 'react-native-tar-gz';
 
 export default function App() {
   React.useEffect(() => {
