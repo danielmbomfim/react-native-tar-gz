@@ -4,6 +4,10 @@ const filePath = './targz/.cargo/config.toml';
 const ndkHome = process.env.NDK_HOME;
 
 function expandEnvVars() {
+  if (process.env.SKIP_POST_INSTALL_SCRIPT === '1') {
+    return;
+  }
+
   if (!ndkHome) {
     throw Error('NDK_HOME environment variable is not defined correctly.');
   }

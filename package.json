@@ -61,6 +61,10 @@
     "@evilmartians/lefthook": "^1.5.0",
     "@react-native/eslint-config": "^0.73.1",
     "@release-it/conventional-changelog": "^5.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.0.3",
+    "@semantic-release/npm": "^12.0.0",
+    "@semantic-release/release-notes-generator": "^13.0.0",
     "@types/jest": "^29.5.5",
     "@types/react": "^18.2.44",
     "commitlint": "^17.0.2",
@@ -74,6 +78,7 @@
     "react-native": "0.73.7",
     "react-native-builder-bob": "^0.20.0",
     "release-it": "^15.0.0",
+    "semantic-release": "^23.0.8",
     "turbo": "^1.10.7",
     "typescript": "^5.2.2"
   },
