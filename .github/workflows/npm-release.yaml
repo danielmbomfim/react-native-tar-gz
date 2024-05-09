@@ -25,8 +25,6 @@ jobs:
 
       - name: Install Dependencies
         run: yarn
-        env:
-          SKIP_POST_INSTALL_SCRIPT: 1
 
       - name: Semantic Release
         env:

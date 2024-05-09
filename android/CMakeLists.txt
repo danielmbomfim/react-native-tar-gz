@@ -14,7 +14,7 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Corrosion)
 
-corrosion_import_crate(MANIFEST_PATH ../targz/Cargo.toml NO_LINKER_OVERRIDE)
+corrosion_import_crate(MANIFEST_PATH ../targz/Cargo.toml)
 
 add_library(react-native-tar-gz SHARED ../cpp/cpp-adapter.cpp)
 
