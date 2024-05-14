@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   type Permission,
 } from 'react-native';
-import RNFS from 'react-native-fs';
+import * as RNFS from '@dr.pogodin/react-native-fs';
 
 import { StyleSheet, View, Text } from 'react-native';
 import { compress, uncompress } from 'react-native-tar-gz';

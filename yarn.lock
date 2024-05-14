@@ -1994,6 +1994,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dr.pogodin/react-native-fs@npm:^2.25.0":
+  version: 2.25.0
+  resolution: "@dr.pogodin/react-native-fs@npm:2.25.0"
+  dependencies:
+    buffer: ^6.0.3
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-windows: "*"
+  checksum: 063292bc13c8e5a9aa9836727e7611b56252ebba8850fab4c4ae89cdff8909a82604d53731ffab5d47971151f3f4da89d6906092f698391c8949a8cf4abda39d
+  languageName: node
+  linkType: hard
+
 "@eslint-community/eslint-utils@npm:^4.2.0":
   version: 4.4.0
   resolution: "@eslint-community/eslint-utils@npm:4.4.0"
@@ -5169,13 +5182,6 @@ __metadata:
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
   checksum: 9706c088a283058a8a99e0bf91b0a2f75497f185980d9ffa8b304de1d9e58ebda7c72c07ebf01dadedaac5b2907b2c6f566f660d62bd336c3468e960403b9d65
-  languageName: node
-  linkType: hard
-
-"base-64@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "base-64@npm:0.1.0"
-  checksum: 5a42938f82372ab5392cbacc85a5a78115cbbd9dbef9f7540fa47d78763a3a8bd7d598475f0d92341f66285afd377509851a9bb5c67bbecb89686e9255d5b3eb
   languageName: node
   linkType: hard
 
@@ -13483,22 +13489,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-fs@npm:^2.20.0":
-  version: 2.20.0
-  resolution: "react-native-fs@npm:2.20.0"
-  dependencies:
-    base-64: ^0.1.0
-    utf8: ^3.0.0
-  peerDependencies:
-    react-native: "*"
-    react-native-windows: "*"
-  peerDependenciesMeta:
-    react-native-windows:
-      optional: true
-  checksum: 0be9bb9a5c13b501d0a3006efc3aa5c0b5b211456ee04718297f4e522532f3527f1daa220bd67d3b82d819ed8fdab8f64b7d6e0d7b768c1fd1d8ec9122d94316
-  languageName: node
-  linkType: hard
-
 "react-native-tar-gz-example@workspace:example":
   version: 0.0.0-use.local
   resolution: "react-native-tar-gz-example@workspace:example"
@@ -13506,13 +13496,14 @@ __metadata:
     "@babel/core": ^7.20.0
     "@babel/preset-env": ^7.20.0
     "@babel/runtime": ^7.20.0
+    "@dr.pogodin/react-native-fs": ^2.25.0
     "@react-native/babel-preset": 0.73.21
     "@react-native/metro-config": 0.73.5
     "@react-native/typescript-config": 0.73.1
     babel-plugin-module-resolver: ^5.0.0
+    metro-config: ^0.80.9
     react: 18.2.0
     react-native: 0.73.7
-    react-native-fs: ^2.20.0
     react-native-windows: 0.73.7
   languageName: unknown
   linkType: soft
@@ -16055,13 +16046,6 @@ __metadata:
     execa: ^1.0.0
     mem: ^4.3.0
   checksum: 455c3b2103c164c867c263696fa3bc9a4066a3941d2d5d04bb51d9e092874af075c08311d50c9fc4685d75b3dcad43dd42d3ac1a775340f473042797dce86edb
-  languageName: node
-  linkType: hard
-
-"utf8@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "utf8@npm:3.0.0"
-  checksum: cb89a69ad9ab393e3eae9b25305b3ff08bebca9adc839191a34f90777eb2942f86a96369d2839925fea58f8f722f7e27031d697f10f5f39690f8c5047303e62d
   languageName: node
   linkType: hard
 
