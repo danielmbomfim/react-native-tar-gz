@@ -101,24 +101,30 @@
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)'=='Debug'">..\..\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\targz\target\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">targz.lib;userenv.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ShowProgress Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotSet</ShowProgress>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)'=='Debug'">..\..\targz\target\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Debug'">targz.lib;userenv.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress Condition="'$(Configuration)'=='Debug'">NotSet</ShowProgress>
     </Link>
+    <PreBuildEvent>
+      <Command Condition="'$(Configuration)'=='Debug'">cargo build --manifest-path ../../targz/Cargo.toml</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)'=='Release'">..\..\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\targz\target\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">targz.lib;userenv.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ShowProgress Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotSet</ShowProgress>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)'=='Release'">..\..\targz\target\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Release'">targz.lib;userenv.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress Condition="'$(Configuration)'=='Release'">NotSet</ShowProgress>
     </Link>
+    <PreBuildEvent>
+      <Command Condition="'$(Configuration)'=='Debug'">cargo build --release --manifest-path ../../targz/Cargo.toml</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ReactPackageProvider.h">
