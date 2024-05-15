@@ -123,7 +123,7 @@
       <ShowProgress Condition="'$(Configuration)'=='Release'">NotSet</ShowProgress>
     </Link>
     <PreBuildEvent>
-      <Command Condition="'$(Configuration)'=='Debug'">cargo build --release --manifest-path ../../targz/Cargo.toml</Command>
+      <Command Condition="'$(Configuration)'=='Release'">cargo build --release --manifest-path ../../targz/Cargo.toml</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
