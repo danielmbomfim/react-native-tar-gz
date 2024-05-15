@@ -8,7 +8,7 @@ This library uses the new architecture and as a project must have it enabled to 
 [How to enable the new architecture](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/enable-apps.md).
 ## Installation
 
-As this lib uses rust, you must [install](https://www.rust-lang.org/learn/get-started) it before building.
+As this lib uses rust, you must [have it installed](https://www.rust-lang.org/learn/get-started) before building your app.
 
 ### Android
 
@@ -22,6 +22,12 @@ npm install react-native-tar-gz
 ```sh
 rustup target add aarch64-apple-ios x86_64-apple-ios
 cargo install cargo-lipo
+npm install react-native-tar-gz
+```
+
+### Windows
+
+```sh
 npm install react-native-tar-gz
 ```
 
