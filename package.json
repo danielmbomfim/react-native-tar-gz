@@ -41,7 +41,8 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "windows"
   ],
   "repository": {
     "type": "git",
